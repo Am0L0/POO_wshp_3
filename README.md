@@ -33,6 +33,7 @@ Vehicule <|--Bus
 Bus<|--SchoolBus
 
 ```
+
 ## Maison 
 ```mermaid
 classDiagram
@@ -87,4 +88,38 @@ classDiagram
     Maison *-- "1..*" Piece : l_piece
 
     note for Piece "is_sdb(), is_br() et le destructeur sont virtual"
+```
+
+## Geometrie
+```mermaid
+classDiagram
+    class Objet {
+        <<abstract>>
+        + aire() double
+        + perimetre() double
+        + afficheInfo() void
+    }
+
+    class Rectangle {
+        - largeur : double
+        - longueur : double
+        + Rectangle(l : double, lg : double)
+        + getLargeur() double
+        + getLongueur() double
+        + aire() double
+        + perimetre() double
+        + afficheInfo() void
+    }
+
+    class Carre {
+        - cote : double
+        + Carre(c : double)
+        + getCote() double
+        + aire() double
+        + perimetre() double
+        + afficheInfo() void
+    }
+
+    Objet <|-- Rectangle
+    Objet <|-- Carre
 ```
